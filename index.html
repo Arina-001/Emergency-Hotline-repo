@@ -1,174 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Emergency Service Directory</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-green-50 font-sans">
-
-  <!-- Header -->
-  <header class="bg-white shadow">
-    <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
-      <div class="flex items-center gap-2">
-        <img src="assets/logo.png" alt="Logo" class="w-8 h-8">
-        <span class="font-bold text-green-800 text-lg">Emergency Service</span>
-      </div>
-      <div class="flex items-center gap-3">
-        <span class="flex items-center gap-1 text-red-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          <span id="heartCount">0</span>
-        </span>
-        <span class="flex items-center gap-1 text-yellow-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14h-2v-2h2zm0-4h-2V7h2z"/></svg>
-          <span id="coinCount">100</span>
-        </span>
-        <span class="flex items-center gap-1 text-blue-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0a12 12 0 1 0 12 12A12 12 0 0 0 12 0zm1 17h-2v-2h2zm0-4h-2V5h2z"/></svg>
-          <span id="copyCount">0</span>
-        </span>
-      </div>
+<body class="font-sans bg-gray-100">
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between bg-white shadow px-6 py-3">
+    <div class="flex items-center gap-2">
+      <img src="assets/logo.png" alt="logo" class="w-8 h-8">
+      <span class="font-bold text-lg text-green-700">Emergency Service</span>
     </div>
-  </header>
+    <div class="flex items-center gap-4">
+      <span id="heartCount" class="flex items-center gap-1 text-red-600 font-semibold">
+        ❤️ <span id="heartValue">0</span>
+      </span>
+      <span class="flex items-center gap-1 text-yellow-600 font-semibold">
+        <span id="coinValue">100</span> <img src="assets/coin.png" class="w-5 h-5"> 
+      </span>
+      <button id="copyCountBtn" class="bg-green-600 text-white px-4 py-1 rounded-full font-medium">
+        0 Copy
+      </button>
+    </div>
+  </nav>
 
-  <!-- Hero -->
-  <section class="bg-green-700 text-center text-white py-8">
-    <img src="assets/logo-dark.png" class="w-16 h-16 mx-auto mb-2" alt="Gov Logo">
-    <h1 class="text-2xl font-bold">Emergency Service Directory</h1>
-    <p>Government Emergency Services at Your Fingertip – A Project by Government of the People's Republic of Bangladesh</p>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-green-950 via-green-700 to-green-950 text-center text-white py-10">
+    <img src="assets/logo-dark.png" alt="gov-logo" class="mx-auto w-16 h-16 mb-4">
+    <h1 class="text-3xl font-bold">Emergency Service Directory</h1>
+    <p class="mt-2">Government Emergency Services at Your Fingertip – A Project by Government of the People's Republic of Bangladesh</p>
   </section>
 
-  <!-- Main Content -->
-  <main class="max-w-7xl mx-auto p-4 flex flex-col lg:flex-row gap-4">
-
+  <!-- Main Section -->
+  <main class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
     <!-- Cards Section -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-1">
-
-      <!-- Example Card Template -->
-      <div class="bg-white rounded-xl p-4 shadow flex flex-col justify-between">
-        <div class="flex justify-between">
-          <img src="assets/emergency.png" class="w-10 h-10" alt="Icon">
-          <button onclick="addHeart(this)" class="text-red-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          </button>
+    <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      
+      <!-- Card Template -->
+      <div class="bg-white p-4 rounded-xl shadow">
+        <img src="assets/emergency.png" alt="icon" class="w-10 h-10 mb-2">
+        <div class="flex justify-between items-center">
+          <h2 class="font-semibold">National Emergency Number</h2>
+          <button class="heartBtn">🤍</button>
         </div>
-        <h3 class="font-semibold text-lg mt-2">National Emergency Number</h3>
         <p class="text-sm text-gray-500">National Emergency</p>
         <p class="text-2xl font-bold mt-2">999</p>
-        <p class="text-sm text-gray-500">All</p>
-        <div class="flex gap-2 mt-3">
-          <button onclick="copyNumber('999')" class="border px-3 py-1 rounded-lg flex items-center gap-1 text-blue-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0a12 12 0 1 0 12 12A12 12 0 0 0 12 0zm1 17h-2v-2h2zm0-4h-2V5h2z"/></svg>
-            Copy
+        <span class="text-xs bg-gray-200 px-2 py-1 rounded">All</span>
+        <div class="flex justify-between mt-4">
+          <button class="copyBtn flex items-center gap-1 border px-3 py-1 rounded-full">
+            📋 Copy
           </button>
-          <button onclick="callNumber('National Emergency Number','999')" class="bg-green-600 text-white px-4 py-1 rounded-lg flex items-center gap-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.093 15.093 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.48 2.53.74 3.88.74a1 1 0 0 1 1 1v3.25a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1H7.25a1 1 0 0 1 1 1c0 1.35.26 2.67.74 3.88a1 1 0 0 1-.21 1.11l-2.16 2.2z"/></svg>
-            Call
+          <button class="callBtn flex items-center gap-1 bg-green-600 text-white px-3 py-1 rounded">
+            📞 Call
           </button>
         </div>
       </div>
 
-      <!-- Repeat the same structure for all 9 cards -->
-      <!-- Just update the icon, service name, description, number, category -->
-
-      <!-- Police Card -->
-      <div class="bg-white rounded-xl p-4 shadow flex flex-col justify-between">
-        <div class="flex justify-between">
-          <img src="assets/police.png" class="w-10 h-10" alt="Icon">
-          <button onclick="addHeart(this)" class="text-red-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          </button>
+      <div class="bg-white p-4 rounded-xl shadow">
+        <img src="assets/police.png" class="w-10 h-10 mb-2">
+        <div class="flex justify-between items-center">
+          <h2 class="font-semibold">Police Helpline Number</h2>
+          <button class="heartBtn">🤍</button>
         </div>
-        <h3 class="font-semibold text-lg mt-2">Police Helpline Number</h3>
         <p class="text-sm text-gray-500">Police</p>
         <p class="text-2xl font-bold mt-2">999</p>
-        <p class="text-sm text-gray-500">Police</p>
-        <div class="flex gap-2 mt-3">
-          <button onclick="copyNumber('999')" class="border px-3 py-1 rounded-lg flex items-center gap-1 text-blue-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0a12 12 0 1 0 12 12A12 12 0 0 0 12 0zm1 17h-2v-2h2zm0-4h-2V5h2z"/></svg>
-            Copy
-          </button>
-          <button onclick="callNumber('Police Helpline Number','999')" class="bg-green-600 text-white px-4 py-1 rounded-lg flex items-center gap-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.093 15.093 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.48 2.53.74 3.88.74a1 1 0 0 1 1 1v3.25a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1H7.25a1 1 0 0 1 1 1c0 1.35.26 2.67.74 3.88a1 1 0 0 1-.21 1.11l-2.16 2.2z"/></svg>
-            Call
-          </button>
+        <span class="text-xs bg-gray-200 px-2 py-1 rounded">Police</span>
+        <div class="flex justify-between mt-4">
+          <button class="copyBtn flex items-center gap-1 border px-3 py-1 rounded-full">📋 Copy</button>
+          <button class="callBtn flex items-center gap-1 bg-green-600 text-white px-3 py-1 rounded">📞 Call</button>
         </div>
       </div>
 
-      <!-- Continue same for remaining cards (Fire, Ambulance, Women & Child, Anti-Corruption, Electricity, Brac, Railway) -->
+      <div class="bg-white p-4 rounded-xl shadow">
+        <img src="assets/fire-service.png" class="w-10 h-10 mb-2">
+        <div class="flex justify-between items-center">
+          <h2 class="font-semibold">Fire Service Number</h2>
+          <button class="heartBtn">🤍</button>
+        </div>
+        <p class="text-sm text-gray-500">Fire Service</p>
+        <p class="text-2xl font-bold mt-2">999</p>
+        <span class="text-xs bg-gray-200 px-2 py-1 rounded">Fire</span>
+        <div class="flex justify-between mt-4">
+          <button class="copyBtn flex items-center gap-1 border px-3 py-1 rounded-full">📋 Copy</button>
+          <button class="callBtn flex items-center gap-1 bg-green-600 text-white px-3 py-1 rounded">📞 Call</button>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl shadow">
+        <img src="assets/ambulance.png" class="w-10 h-10 mb-2">
+        <div class="flex justify-between items-center">
+          <h2 class="font-semibold">Ambulance Service</h2>
+          <button class="heartBtn">🤍</button>
+        </div>
+        <p class="text-sm text-gray-500">Ambulance</p>
+        <p class="text-2xl font-bold mt-2">1994-999999</p>
+        <span class="text-xs bg-gray-200 px-2 py-1 rounded">Health</span>
+        <div class="flex justify-between mt-4">
+          <button class="copyBtn flex items-center gap-1 border px-3 py-1 rounded-full">📋 Copy</button>
+          <button class="callBtn flex items-center gap-1 bg-green-600 text-white px-3 py-1 rounded">📞 Call</button>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl shadow">
+        <img src="assets/emergency.png" class="w-10 h-10 mb-2">
+        <div class="flex justify-between items-center">
+          <h2 class="font-semibold">Women & Child Helpline</h2>
+          <button class="heartBtn">🤍</button>
+        </div>
+        <p class="text-sm text-gray-500">Women & Child</p>
+        <p class="text-2xl font-bold mt-2">109</p>
+        <span class="text-xs bg-gray-200 px-2 py-1 rounded">Help</span>
+        <div class="flex justify-between mt-4">
+          <button class="copyBtn flex items-center gap-1 border px-3 py-1 rounded-full">📋 Copy</button>
+          <button class="callBtn flex items-center gap-1 bg-green-600 text-white px-3 py-1 rounded">📞 Call</button>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl shadow">
+        <img src="assets/emergency.png" class="w-10 h-10 mb-2">
+        <div class="flex justify-between items-center">
+          <h2 class="font-semibold">Anti-Corruption Helpline</h2>
+          <button class="heartBtn">🤍</button>
+        </div>
+        <p class="text-sm text-gray-500">Anti-Corruption</p>
+        <p class="text-2xl font-bold mt-2">106</p>
+        <span class="text-xs bg-gray-200 px-2 py-1 rounded">Govt.</span>
+        <div class="flex justify-between mt-4">
+          <button class="copyBtn flex items-center gap-1 border px-3 py-1 rounded-full">📋 Copy</button>
+          <button class="callBtn flex items-center gap-1 bg-green-600 text-white px-3 py-1 rounded">📞 Call</button>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl shadow">
+        <img src="assets/emergency.png" class="w-10 h-10 mb-2">
+        <div class="flex justify-between items-center">
+          <h2 class="font-semibold">Electricity Helpline</h2>
+          <button class="heartBtn">🤍</button>
+        </div>
+        <p class="text-sm text-gray-500">Electricity</p>
+        <p class="text-2xl font-bold mt-2">16216</p>
+        <span class="text-xs bg-gray-200 px-2 py-1 rounded">Electricity</span>
+        <div class="flex justify-between mt-4">
+          <button class="copyBtn flex items-center gap-1 border px-3 py-1 rounded-full">📋 Copy</button>
+          <button class="callBtn flex items-center gap-1 bg-green-600 text-white px-3 py-1 rounded">📞 Call</button>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl shadow">
+        <img src="assets/brac.png" class="w-10 h-10 mb-2">
+        <div class="flex justify-between items-center">
+          <h2 class="font-semibold">Brac Helpline</h2>
+          <button class="heartBtn">🤍</button>
+        </div>
+        <p class="text-sm text-gray-500">Brac</p>
+        <p class="text-2xl font-bold mt-2">16445</p>
+        <span class="text-xs bg-gray-200 px-2 py-1 rounded">NGO</span>
+        <div class="flex justify-between mt-4">
+          <button class="copyBtn flex items-center gap-1 border px-3 py-1 rounded-full">📋 Copy</button>
+          <button class="callBtn flex items-center gap-1 bg-green-600 text-white px-3 py-1 rounded">📞 Call</button>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl shadow">
+        <img src="assets/Bangladesh-Railway.png" class="w-10 h-10 mb-2">
+        <div class="flex justify-between items-center">
+          <h2 class="font-semibold">Bangladesh Railway Helpline</h2>
+          <button class="heartBtn">🤍</button>
+        </div>
+        <p class="text-sm text-gray-500">Bangladesh Railway</p>
+        <p class="text-2xl font-bold mt-2">163</p>
+        <span class="text-xs bg-gray-200 px-2 py-1 rounded">Travel</span>
+        <div class="flex justify-between mt-4">
+          <button class="copyBtn flex items-center gap-1 border px-3 py-1 rounded-full">📋 Copy</button>
+          <button class="callBtn flex items-center gap-1 bg-green-600 text-white px-3 py-1 rounded">📞 Call</button>
+        </div>
+      </div>
 
     </div>
 
-    <!-- Call History -->
-    <aside class="w-full lg:w-80 mt-6 lg:mt-0">
-      <div class="bg-white rounded-xl p-4 shadow flex flex-col h-full">
-        <div class="flex justify-between items-center mb-3">
-          <h3 class="font-semibold">Call History</h3>
-          <button onclick="clearHistory()" class="bg-green-600 text-white px-3 py-1 rounded-lg text-sm">Clear</button>
-        </div>
-        <div id="callHistory" class="flex-1 flex flex-col gap-2 overflow-y-auto"></div>
+    <!-- History Section -->
+    <div class="bg-white rounded-xl shadow p-4">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="font-semibold flex items-center gap-1">🕑 Call History</h2>
+        <button id="clearHistory" class="text-sm bg-green-600 text-white px-4 py-1 rounded-full">Clear</button>
       </div>
-    </aside>
-
+      <ul id="historyList" class="space-y-2 text-sm text-gray-700">
+        <!-- Filled dynamically -->
+      </ul>
+    </div>
   </main>
 
-  <!-- JavaScript -->
+  <!-- Script -->
   <script>
-    let heartCount = 0;
-    let coins = 100;
+    let heartValue = 0;
+    let coinValue = 100;
     let copyCount = 0;
 
-    function updateNavbar() {
-      document.getElementById("heartCount").innerText = heartCount;
-      document.getElementById("coinCount").innerText = coins;
-      document.getElementById("copyCount").innerText = copyCount;
-    }
+    const heartValueEl = document.getElementById("heartValue");
+    const coinValueEl = document.getElementById("coinValue");
+    const copyCountBtn = document.getElementById("copyCountBtn");
+    const historyList = document.getElementById("historyList");
+    const clearHistoryBtn = document.getElementById("clearHistory");
 
-    function addHeart(button) {
-      heartCount++;
-      updateNavbar();
-      button.disabled = true;
-    }
+    // Heart Button
+    document.querySelectorAll(".heartBtn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        heartValue++;
+        heartValueEl.textContent = heartValue;
+      });
+    });
 
-    function copyNumber(number) {
-      navigator.clipboard.writeText(number);
-      copyCount++;
-      updateNavbar();
-      alert("Copied: " + number);
-    }
+    // Copy Button
+    document.querySelectorAll(".copyBtn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const number = btn.closest(".bg-white").querySelector("p.text-2xl").textContent;
+        navigator.clipboard.writeText(number);
+        alert(`Copied: ${number}`);
+        copyCount++;
+        copyCountBtn.textContent = `${copyCount} Copy`;
+      });
+    });
 
-    function callNumber(service, number) {
-      if (coins < 20) {
-        alert("You don't have enough coins!");
-        return;
-      }
-      coins -= 20;
-      updateNavbar();
+    // Call Button
+    document.querySelectorAll(".callBtn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const card = btn.closest(".bg-white");
+        const serviceName = card.querySelector("h2").textContent;
+        const serviceNumber = card.querySelector("p.text-2xl").textContent;
 
-      const historyContainer = document.getElementById("callHistory");
-      const time = new Date().toLocaleTimeString();
+        if (coinValue < 20) {
+          alert("Not enough coins to make a call!");
+          return;
+        }
 
-      const div = document.createElement("div");
-      div.className = "bg-white p-3 rounded-lg shadow flex justify-between items-center";
-      div.innerHTML = `
-        <div>
-          <p class="font-semibold">${service}</p>
-          <p class="text-sm text-gray-600">${number}</p>
-        </div>
-        <span class="text-sm text-gray-500">${time}</span>
-      `;
-      historyContainer.prepend(div);
+        coinValue -= 20;
+        coinValueEl.textContent = coinValue;
 
-      alert(`Calling ${service} (${number})`);
-    }
+        alert(`Calling ${serviceName} at ${serviceNumber}`);
 
-    function clearHistory() {
-      document.getElementById("callHistory").innerHTML = "";
-    }
+        const now = new Date();
+        const time = now.toLocaleTimeString();
+        const li = document.createElement("li");
+        li.className = "flex justify-between";
+        li.innerHTML = `<span>${serviceName} (${serviceNumber})</span><span class="text-gray-500">${time}</span>`;
+        historyList.prepend(li);
+      });
+    });
 
-    updateNavbar()
+    // Clear History
+    clearHistoryBtn.addEventListener("click", () => {
+      historyList.innerHTML = "";
+    });
   </script>
-
 </body>
 </html>
