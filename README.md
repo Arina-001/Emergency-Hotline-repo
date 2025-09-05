@@ -17,5 +17,5 @@ Ans: When i click on a small thing, the click goes up to bigger things around it
 Ans: Instead of giving every small thing a click , i  give the big container a click, and it handles all the small ones. it helps me to save time. 
 
 5. What is the difference between preventDefault() and stopPropagation() methods?
-Ans preventDefault() → Stops the normal thing from happening (like stopping a link from opening).
+Ans: preventDefault() → Stops the normal thing from happening (like stopping a link from opening).
 stopPropagation() → Stops the click from going up to bigger things.
